@@ -1,0 +1,5 @@
+import tensorflow as tf 
+tensor=tf.constant("Hello, TensorFlow!")
+with tensor.compat.v1.Session() as sess:
+    result=sess.run(tensor)
+    print(result.decode())
