@@ -1,16 +1,3 @@
-def StringChallenge(str):
-    varOcg = str  # _define-ocg_: Storing the input string in varOcg
-    varFiltersCg = list(varOcg)  # Converting string to list for easier indexing
-    
-    for i in range(len(varFiltersCg)):
-        if varFiltersCg[i].isalpha():
-            # Check if the character before and after is '+'
-            if i == 0 or i == len(varFiltersCg) - 1:
-                return "false"  # No surrounding '+' at boundaries
-            if varFiltersCg[i-1] != '+' or varFiltersCg[i+1] != '+':
-                return "false"
-    return "true"
-
-# Example usage:
-print(StringChallenge("===+c++=="))  # Output: false
-# print(StringChallenge("++d++===+c++==+a+"))  # Output: true
+s="()"
+if "{[" in s or "([" in s or "({" in s:
+    print("False")
