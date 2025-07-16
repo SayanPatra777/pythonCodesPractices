@@ -1,3 +1,0 @@
-s="()"
-if "{[" in s or "([" in s or "({" in s:
-    print("False")
