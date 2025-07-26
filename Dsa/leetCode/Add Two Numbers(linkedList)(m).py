@@ -16,7 +16,7 @@ class Solution(object):
                 num2+=l2.val*(pow(10,count2))
                 count2+=1
                 l2=l2.next
-        sums=num1+num2
+        sums=num1+num2 
         if sums == 0:
             return ListNode(0)
         head = None
