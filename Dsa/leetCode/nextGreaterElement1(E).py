@@ -27,6 +27,36 @@ class Solution:
         return nums1
     
     # According to LeetCode, the time complexity is O(n*m) where n is the length of nums1 and m is the length of nums2. So, it should be optimised. I'll write that benith 
-    
-s=Solution()
+class SolutionOptimized:
+    def nextGreaterElement(self, nums1: List[int], nums2: List[int]) -> List[int]:
+        stack = []
+        next_greater = {}
+
+        # Step 1: Build next_greater map using monotonic stack
+        for num in nums2:
+            while stack and num > stack[-1]:
+                prev = stack.pop()
+                next_greater[prev] = num
+            stack.append(num)
+
+        # Step 2: Map results for nums1 using precomputed dictionary
+        # You're looping through nums1 and trying to find the "next greater" element for each x. The .get() function on a Python dict is like asking:
+# “Hey dictionary, do you have a value for this key x? If yes, give it to me. If not, give me -1
+
+        return [next_greater.get(num, -1) for num in nums1]
+
+
+s=SolutionOptimized()
 print(s.nextGreaterElement([4,1,2,0],[3,4,2,0,1])) #[-1,-1,-1,1]
+
+'''
+🧩 Problem Recap (In Your Words)
+You're given:
+nums1 — a subset of nums2
+For each element in nums1, find the next greater element in nums2.
+If there's no greater element to its right — return -1
+💡 Core Insight
+Instead of looping through nums2 again and again for each nums1[i], we can preprocess nums2 once to record the next greater number for every element
+
+'''
+    
